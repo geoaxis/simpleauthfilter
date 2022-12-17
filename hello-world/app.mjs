@@ -20,16 +20,15 @@ export const lambdaHandler = async (event, context) => {
 
         let secret = '';
         http.get(parameterUrl, (resp) => {
-            let data = '';
-            resp.on('secret', (chunk) => {
-                data += chunk;
+            resp.on('data', (chunk) => {
+                secret += chunk;
             });
         }).on("error", (err) => {
             console.log("Error: " + err.message);
         });
 
 
-        console.log(secret);
+        console.log("Secret is :" + secret);
 
         console.log(event);
         console.log(context);
