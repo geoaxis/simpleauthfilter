@@ -9,6 +9,9 @@ Description: >
 Globals:
   Function:
     Timeout: 3
+    Environment:
+      Variables:
+        PARAMETERS_SECRETS_EXTENSION_HTTP_PORT: 2773  
 
 Resources:
   HelloWorldFunction:
@@ -19,6 +22,8 @@ Resources:
       Runtime: nodejs18.x
       Architectures:
         - x86_64
+      Layers:
+        - arn:aws:lambda:eu-west-1:015030872274:layer:AWS-Parameters-and-Secrets-Lambda-Extension:2
       Events:
         HelloWorld:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
