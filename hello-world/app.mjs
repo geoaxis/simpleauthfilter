@@ -11,15 +11,32 @@
  * 
  */
 
+const https = require('https')
+let parameterUrl = "http://localhost:2773/systemsmanager/parameters/get?name=%2Flambda%2Fbasicauth%2Fauthtest"
+
 export const lambdaHandler = async (event, context) => {
     try {
         //useless comment
-        
+
+        let secret = '';
+        https.get(parameterUrl, (resp) => {
+            let data = '';
+            resp.on('secret', (chunk) => {
+                data += chunk;
+            });
+        }).on("error", (err) => {
+            console.log("Error: " + err.message);
+        });
+
+
+        console.log(secret);
+
         console.log(event);
         console.log(context);
-        return  event;
-        }
-     catch (err) {
+
+        return event;
+    }
+    catch (err) {
         console.log(err);
         return err;
     }
