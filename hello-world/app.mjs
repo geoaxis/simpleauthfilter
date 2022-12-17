@@ -23,7 +23,7 @@ export const lambdaHandler = async (event, context) => {
         let headerToken = process.env.AWS_SESSION_TOKEN;
         let ssmPort = process.env.PARAMETERS_SECRETS_EXTENSION_HTTP_PORT;
 
-        console.log("ssm port" + port);
+        console.log("ssm port" + ssmPort);
         console.log("header token" + headerToken);
 
         const options = {
