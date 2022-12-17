@@ -11,7 +11,7 @@
  * 
  */
 
-const https = require('https')
+import * as http from 'http';
 let parameterUrl = "http://localhost:2773/systemsmanager/parameters/get?name=%2Flambda%2Fbasicauth%2Fauthtest"
 
 export const lambdaHandler = async (event, context) => {
@@ -19,7 +19,7 @@ export const lambdaHandler = async (event, context) => {
         //useless comment
 
         let secret = '';
-        https.get(parameterUrl, (resp) => {
+        http.get(parameterUrl, (resp) => {
             let data = '';
             resp.on('secret', (chunk) => {
                 data += chunk;
