@@ -13,6 +13,7 @@
 
 export const lambdaHandler = async (event, context) => {
     try {
+        //useless comment
         console.log(event);
         return  event;
         }
