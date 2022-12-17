@@ -12,6 +12,7 @@
  */
 
 import * as http from 'http';
+
 let parameterUrl = "http://localhost:2773/systemsmanager/parameters/get?name=%2Flambda%2Fbasicauth%2Fauthtest"
 
 export const lambdaHandler = async (event, context) => {
@@ -19,7 +20,17 @@ export const lambdaHandler = async (event, context) => {
         //useless comment
 
         let secret = '';
-        http.get(parameterUrl, (resp) => {
+        let headerToken = process.env.AWS_SESSION_TOKEN
+
+        const options = {
+            hostname: 'localhost',
+            path: '/systemsmanager/parameters/get?name=%2Flambda%2Fbasicauth%2Fauthtest',
+            headers: {
+                'X-Aws-Parameters-Secrets-Token': headerToken
+            }
+        }
+
+        http.get(options, (resp) => {
             resp.on('data', (chunk) => {
                 secret += chunk;
             });
