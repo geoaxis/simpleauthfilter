@@ -17,7 +17,7 @@ export const lambdaHandler = async (event, context) => {
         console.log(event);
         return  event;
         }
-    } catch (err) {
+     catch (err) {
         console.log(err);
         return err;
     }
