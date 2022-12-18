@@ -12,7 +12,8 @@ Globals:
     Environment:
       Variables:
         PARAMETERS_SECRETS_EXTENSION_HTTP_PORT: 2773
-        NODE_DEBUG: http  
+        NODE_DEBUG: http
+        PARAMETERS_SECRETS_EXTENSION_LOG_LEVEL: debug  
 
 Resources:
   HelloWorldFunction:

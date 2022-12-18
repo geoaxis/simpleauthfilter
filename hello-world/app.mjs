@@ -13,7 +13,7 @@
 
 import * as http from 'http';
 
-export const lambdaHandler = async (event, context) => {
+export const lambdaHandler = (event, context) => {
     try {
         let secret = '';
         let headerToken = process.env.AWS_SESSION_TOKEN;
