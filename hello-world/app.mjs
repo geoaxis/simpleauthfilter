@@ -20,6 +20,8 @@ export const lambdaHandler = async (event, context) => {
         let ssmPort = process.env.PARAMETERS_SECRETS_EXTENSION_HTTP_PORT;
 
         console.log("header token" + headerToken);
+        console.log("ssm port" + ssmPort);
+        console.log("node debug" + process.env.NODE_DEBUG);
 
         const options = {
             hostname: 'localhost',

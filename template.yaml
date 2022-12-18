@@ -11,7 +11,8 @@ Globals:
     Timeout: 3
     Environment:
       Variables:
-        PARAMETERS_SECRETS_EXTENSION_HTTP_PORT: 2773  
+        PARAMETERS_SECRETS_EXTENSION_HTTP_PORT: 2773
+        NODE_DEBUG: http  
 
 Resources:
   HelloWorldFunction:
