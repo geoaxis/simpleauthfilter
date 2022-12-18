@@ -31,6 +31,11 @@ Resources:
           Properties:
             Path: /hello
             Method: get
+      Policies:
+        - KMSDecryptPolicy:
+            KeyId: "90c13d02-31e3-4c80-bcd8-a15131aa6a48"
+        - SSMParameterReadPolicy:
+            ParameterName: "/lambda/basicauth/authtest"   
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
